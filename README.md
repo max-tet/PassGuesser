@@ -19,7 +19,7 @@ You can specify a pattern as a tuple. Each element specifies a set of possible c
 The simplest element is just a String and will not be expanded. It is useful if you still remember exactly a part of your password. It is not very useful on its own of course.
 
 ```
-wordlistGen = pg.wordlist(("Password",))
+pattern = ("Password",)
 ```
 
 The function `comb` can be used as an element of the pattern to represent all combinations of some characters.

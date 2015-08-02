@@ -12,12 +12,17 @@ def comb(base, length):
 			baselist += map(chr, range(97, 123))
 		if "u" in base:
 			baselist += map(chr, range(65, 91))
-	if isinstance(base, type.ListType):
+
+	if isinstance(base, types.ListType):
 		baselist = base
 
+	if type(length) == int:
+		length = [length]
+
 	def getGen():
-		for comb in itertools.combinations_with_replacement(baselist, length):
-			yield "".join(map(str,comb))
+		for l in length:
+			for comb in itertools.product(baselist, repeat=l):
+				yield "".join(map(str,comb))
 	return getGen
 
 
